@@ -1,4 +1,3 @@
-
-module.exports = (strawHatsRepositoty) => {
-    return strawHatsRepositoty.getStrawHats();
+module.exports = ({strawHatRepositoty}) => {
+    return strawHatRepositoty.getStrawHats();
 }

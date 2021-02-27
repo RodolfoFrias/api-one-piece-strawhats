@@ -20,13 +20,17 @@ app.use((req, res, next) => {
     next();
 });
 
+app.use((req, res, next) => {
+    req.app.servicelocator = require('./infraestructure/config/service_locator');
+    next();
+});
 app.use(prefix, strawHat);
 
 const PORT = process.env.PORT || 3000;
 
 const start = async () => {
     await bootstrap.init();
-    app.listen(PORT, () => console.log('Server running'));
+    app.listen(PORT, () => console.log('Server running on port', PORT));
 }
 
 start();

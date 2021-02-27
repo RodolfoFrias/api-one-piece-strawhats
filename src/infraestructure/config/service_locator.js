@@ -7,12 +7,13 @@ function buildBeans() {
     const beans = {};
     if (environment.database.dialect === constants.SUPPORTED_DATABASE.MONGO) {
         const StrawHatMongoRepository = require('../repositories/StrawHatMongoRepository');
-        beans.StrawHatMongoRepository = new StrawHatMongoRepository();
+        beans.strawHatRepository = new StrawHatMongoRepository();
     } else if (environment.database.dialect === constants.SUPPORTED_DATABASE.ORM_MONGO) {
-        const StrawHatMongooseRepositoy = require('../repositories/StrawHatMongooseRepositoy');
-        beans.StrawHatMongooseRepositoy = new StrawHatMongooseRepositoy();
+        const StrawHatMongooseRepository = require('../repositories/StrawHatMongooseRepository');
+        beans.strawHatRepository = new StrawHatMongooseRepository();
     }
 
+    console.log('Serviceee', beans)
   return beans;
 }
 

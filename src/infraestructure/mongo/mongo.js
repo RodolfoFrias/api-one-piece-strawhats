@@ -7,10 +7,11 @@ let connection;
 async function run() {
     try {
         await client.connect();
+        connection = await client.db();
         console.log('Connected to MongoDB')
     } finally {
       // Ensures that the client will close when you finish/error
-      await client.close();
+      // await client.close();
     }
   }
 //   run().catch(console.dir);
@@ -24,5 +25,7 @@ async function run() {
       }
   }
 
-  exports.runDB = run;
-  exports.getDB = getDB;
+  module.exports = {
+    run,
+    getDB
+  }

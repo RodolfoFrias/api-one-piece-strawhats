@@ -22,8 +22,10 @@ module.exports = class StrawHat {
     }
 
     async save(){
-        const collection = getDB.collection('one_piece_api');
+        console.log('Save Model', this)
+        const collection = getDB().collection('Strawhat');
         return collection.insertOne(this);
     }
+
 
 }

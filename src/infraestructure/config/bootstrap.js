@@ -13,7 +13,7 @@ module.exports = {
     }
     if (environment.database.dialect === constants.SUPPORTED_DATABASE.MONGO) {
       try {
-          await require('../mongo/mongo').runDB();
+          await require('../mongo/mongo').run();
       } catch (error) {
         console.log(error)   
       }
