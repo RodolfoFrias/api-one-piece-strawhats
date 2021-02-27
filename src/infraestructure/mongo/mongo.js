@@ -2,6 +2,7 @@ const { MongoClient } = require("mongodb");
 const environment = require('../config/environment');
 
 const client = new MongoClient(environment.database.url, { useUnifiedTopology: true });
+let connection;
 
 async function run() {
     try {
@@ -12,4 +13,16 @@ async function run() {
       await client.close();
     }
   }
-  run().catch(console.dir);
+//   run().catch(console.dir);
+
+  const getDB = () => {
+      if(connection){
+          return connection;
+      }
+      else{
+          throw 'Error db not found!';
+      }
+  }
+
+  exports.runDB = run;
+  exports.getDB = getDB;

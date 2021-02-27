@@ -12,7 +12,11 @@ module.exports = {
       require('../orm/mongoose/mongoose');
     }
     if (environment.database.dialect === constants.SUPPORTED_DATABASE.MONGO) {
-      require('../mongo/mongo');
+      try {
+          await require('../mongo/mongo').runDB();
+      } catch (error) {
+        console.log(error)   
+      }
     }
   }
 };
