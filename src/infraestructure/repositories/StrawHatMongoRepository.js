@@ -6,7 +6,6 @@ const StrawHat = require('../mongo/schemas/StrawHatModel');
 module.exports = class extends StrawHatRespository {
     constructor(){
         super();
-        this.strawHatModel = new StrawHat();
     }
 
     async getStrawHats(){
@@ -15,10 +14,12 @@ module.exports = class extends StrawHatRespository {
 
     async save(entity){
         const { name, devilFruit, position, photo, firstAppereance, totalBounty } = entity;
-        return await this.strawHatModel.save(
+        const newStrawhat = new StrawHat(
             name, devilFruit, position,
             photo, firstAppereance, totalBounty
         );
+
+        return newStrawhat.save();
     }
 
 }

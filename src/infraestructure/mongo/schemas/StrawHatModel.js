@@ -13,16 +13,15 @@ module.exports = class StrawHat {
         firstAppearence,
         totalBounty
     ){
-        this.name,
-        this.devilFruit,
-        this.position,
-        this.photo,
-        this.firstAppearence,
-        this.totalBounty
+        this.name = name;
+        this.devilFruit = devilFruit;
+        this.position = position;
+        this.photo = photo;
+        this.firstAppearence = firstAppearence;
+        this.totalBounty = totalBounty;
     }
 
-    async save(){
-        console.log('Save Model', this)
+    save(){
         const collection = getDB().collection('Strawhat');
         return collection.insertOne(this);
     }

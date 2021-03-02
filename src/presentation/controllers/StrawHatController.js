@@ -21,10 +21,10 @@ module.exports = {
         try {
             const serviceLocator = req.app.servicelocator;
             await Save(req.body, serviceLocator);
-            res.send(200).json({message: 'OK'})
+            res.status(200).json({message: 'OK'})
         } catch (error) {
             console.log(error);
-            res.send(500).json(error);
+            res.status(500).json(error);
         }
     }
 
