@@ -3,6 +3,7 @@
 const mongodb = require('mongodb');
 const { getDB } = require('../mongo');
 const ObjectId = mongodb.ObjectId;
+const collection = getDB().collection('Strawhat');
 
 module.exports = class StrawHat {
     constructor(
@@ -22,9 +23,19 @@ module.exports = class StrawHat {
     }
 
     save(){
-        const collection = getDB().collection('Strawhat');
         return collection.insertOne(this);
     }
 
+    static find(){
+        return collection.find();
+    }
+
+    static update(){
+
+    }
+
+    static delete(){
+
+    }
 
 }

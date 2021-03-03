@@ -8,11 +8,11 @@ module.exports = class extends StrawHatRespository {
         super();
     }
 
-    async getStrawHats(){
-        
+    getStrawHats(){
+        return StrawHat.find().toArray();
     }
 
-    async save(entity){
+    save(entity){
         const { name, devilFruit, position, photo, firstAppereance, totalBounty } = entity;
         const newStrawhat = new StrawHat(
             name, devilFruit, position,

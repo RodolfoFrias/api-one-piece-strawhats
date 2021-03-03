@@ -1,3 +1,5 @@
-module.exports = ({strawHatRepositoty}) => {
-    return strawHatRepositoty.getStrawHats();
+'use strict';
+
+module.exports = ({strawHatRepository}) => {
+    return strawHatRepository.getStrawHats();
 }
