@@ -30,12 +30,18 @@ module.exports = class StrawHat {
         return collection.find();
     }
 
-    static update(){
-
+    static update(id, entity){
+        const filter = { _id: new ObjectId(id) };
+        const updateDoc = {
+            $set: entity
+        }
+        console.log(filter, updateDoc);
+        return collection.updateOne(filter, updateDoc);
     }
 
-    static delete(){
-
+    static delete(id){
+        const filter = { _id: new ObjectId(id) };
+        return collection.deleteOne(filter); 
     }
 
 }

@@ -22,4 +22,12 @@ module.exports = class extends StrawHatRespository {
         return newStrawhat.save();
     }
 
+    update(id, entity){
+        return StrawHat.update(id, entity);
+    }
+
+    delete(id){
+        return StrawHat.delete(id);
+    }
+
 }
