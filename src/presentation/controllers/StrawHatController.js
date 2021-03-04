@@ -41,7 +41,7 @@ module.exports = {
             const { id } = req.params;
             const serviceLocator = req.app.servicelocator;
             await Update(id, req.body, serviceLocator);
-            res.status(200).json({message: `Updated ${userUpdated.name}`});
+            res.status(200).json({message: `Updated!`});
         } catch (error) {
             console.log('Error while updating: ', error);
             if(!error.statusCode){

@@ -1,14 +1,14 @@
 'use strict';
 
 const mongoose = require('mongoose');
-const environment = require('../config/environment');
+const environment = require('../../config/environment');
 
-mongoose.connect(environment.database.url, { useNewUrlParser: true });
+mongoose.connect(environment.database.url, { useNewUrlParser: true, useUnifiedTopology: true  });
 
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', () => {
-  console.log('connected to MongoDB database!')
+  console.log('Connected to Mongoose!')
 });
 
 module.exports = mongoose;

@@ -3,7 +3,7 @@
 const mongodb = require('mongodb');
 const { getDB } = require('../mongo');
 const ObjectId = mongodb.ObjectId;
-const collection = getDB().collection('Strawhat');
+const collection = getDB().collection('strawhats');
 
 module.exports = class StrawHat {
     constructor(
